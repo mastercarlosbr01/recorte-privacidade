@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de Privacidade — Recorte</title>
+<meta name="description" content="A extensão Recorte não coleta, não armazena e não transmite nenhum dado. Política de privacidade completa.">
+<style>
+  :root {
+    --fundo: #ffffff; --texto: #1e293b; --suave: #64748b;
+    --borda: #e2e8f0; --caixa: #f8fafc; --destaque: #0891b2;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --fundo: #0f172a; --texto: #e2e8f0; --suave: #94a3b8;
+      --borda: #1e293b; --caixa: #162032; --destaque: #22d3ee;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--fundo); color: var(--texto); margin: 0;
+    font: 16px/1.7 system-ui, -apple-system, "Segoe UI", sans-serif;
+    padding: 48px 16px 96px;
+  }
+  main { max-width: 680px; margin: 0 auto; }
+  h1 { font-size: 30px; line-height: 1.25; margin: 0 0 6px; }
+  .data { color: var(--suave); font-size: 14px; margin: 0 0 40px; }
+  h2 {
+    font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+    color: var(--destaque); margin: 44px 0 14px;
+  }
+  p { margin: 0 0 16px; }
+  .resumo {
+    border: 1px solid var(--borda); border-left: 3px solid var(--destaque);
+    border-radius: 0 10px 10px 0; background: var(--caixa);
+    padding: 20px 22px; margin: 0 0 8px;
+  }
+  .resumo p:last-child { margin-bottom: 0; }
+  .resumo strong { font-weight: 650; }
+  ul { margin: 0 0 16px; padding-left: 22px; }
+  li { margin-bottom: 10px; }
+  code {
+    font: 13px/1.5 ui-monospace, "Cascadia Code", Consolas, monospace;
+    background: var(--caixa); border: 1px solid var(--borda);
+    border-radius: 4px; padding: 1px 5px;
+  }
+  table { border-collapse: collapse; width: 100%; margin: 0 0 16px; font-size: 15px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--borda); vertical-align: top; }
+  th { width: 140px; font-weight: 650; color: var(--destaque); font-family: ui-monospace, Consolas, monospace; font-size: 13px; }
+  a { color: var(--destaque); }
+  footer {
+    margin-top: 56px; padding-top: 22px; border-top: 1px solid var(--borda);
+    color: var(--suave); font-size: 14px;
+  }
+</style>
+</head>
+<body>
+<main>
+
+<h1>Política de Privacidade — Recorte</h1>
+<p class="data">Extensão do Google Chrome · Última atualização: 19 de novembro de 2026</p>
+
+<div class="resumo">
+  <p><strong>A extensão Recorte não coleta, não armazena e não transmite nenhum dado.</strong></p>
+  <p>Não há servidor. Não há telemetria. Não há analytics. Nada do que você seleciona
+  sai da sua máquina.</p>
+</div>
+
+<h2>O que a extensão faz</h2>
+<p>Quando você seleciona um texto numa página e aciona a exportação — pelo menu do botão
+direito ou pelo atalho de teclado — a extensão lê esse texto, formata-o na sua própria
+máquina e o grava como arquivo na sua pasta de downloads.</p>
+<p>O texto existe apenas na memória do navegador durante esse instante, e no arquivo que
+você mesmo pediu.</p>
+
+<h2>O que a extensão não faz</h2>
+<ul>
+  <li><strong>Não faz nenhuma chamada de rede.</strong> A política de segurança de conteúdo
+  declarada no manifest bloqueia conexões de saída (<code>connect-src 'none'</code>).</li>
+  <li><strong>Não carrega biblioteca externa nem código remoto.</strong> Todo o código está
+  no pacote publicado na Chrome Web Store.</li>
+  <li><strong>Não usa armazenamento persistente.</strong> A extensão sequer declara a
+  permissão <code>storage</code>.</li>
+  <li><strong>Não pede acesso a nenhum site.</strong> Ela usa <code>activeTab</code>, que
+  concede acesso à aba apenas no instante em que você aciona a exportação, e esse acesso
+  termina junto com o gesto.</li>
+</ul>
+
+<h2>Permissões, e por que cada uma existe</h2>
+<table>
+  <tr><th>contextMenus</th><td>Cria o item "Exportar seleção" no menu do botão direito.</td></tr>
+  <tr><th>activeTab</th><td>Dá acesso à aba apenas no seu gesto, para ler o texto que você selecionou.</td></tr>
+  <tr><th>scripting</th><td>Lê a seleção da página. É necessária porque o texto que a API de menus oferece de graça vem com o espaçamento normalizado, o que estragaria a formatação do arquivo.</td></tr>
+  <tr><th>downloads</th><td>Salva o arquivo gerado.</td></tr>
+  <tr><th>offscreen</th><td>O service worker do Chrome não tem DOM. O documento offscreen fornece o validador de XML e o gerador do arquivo.</td></tr>
+</table>
+
+<h2>Como verificar</h2>
+<p>Nada aqui precisa ser aceito por confiança. O código-fonte é público em
+<a href="https://github.com/mastercarlosbr01/recorte">github.com/mastercarlosbr01/recorte</a>,
+e o repositório tem uma auditoria automática que <strong>reprova a compilação</strong> se
+alguém escrever uma chamada de rede, uma execução dinâmica de código ou uma URL remota.</p>
+<p>Se você encontrar qualquer comportamento diferente do descrito aqui, abra uma questão no
+repositório — isso seria um defeito, não uma política.</p>
+
+<h2>Alterações</h2>
+<p>Se esta política mudar, a data no topo muda junto, e o histórico completo da alteração
+fica público no repositório desta página.</p>
+
+<h2>Contato</h2>
+<p><a href="https://github.com/mastercarlosbr01/recorte/issues">github.com/mastercarlosbr01/recorte/issues</a></p>
+
+<footer>
+  Recorte — exporta a seleção da página como arquivo já formatado.
+</footer>
+
+</main>
+</body>
+</html>
